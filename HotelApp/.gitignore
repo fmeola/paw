@@ -14,3 +14,6 @@ release.properties
 
 .DS_Store
 .classpath
+
+.settings
+.project
