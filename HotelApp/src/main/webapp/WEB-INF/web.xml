@@ -44,4 +44,16 @@
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>UserAuthFilter</filter-name>
+		<filter-class>ar.edu.itba.it.paw.UserAuthFilter</filter-class>
+		<init-param>
+			<param-name>avoid-urls</param-name>
+			<param-value>/login,/listHotels</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>UserAuthFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>

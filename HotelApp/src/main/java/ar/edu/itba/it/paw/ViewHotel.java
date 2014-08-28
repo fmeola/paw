@@ -23,7 +23,15 @@ public class ViewHotel extends HttpServlet {
 		currentHotelCode = req.getParameter("code");
 		currentHotel = db.get(currentHotelCode);
 		HttpSession session = req.getSession();
-
+		
+		/**
+		 * Mejor hacerlo con filtros
+		 */
+		if(session.getAttribute("name") == null){
+			resp.sendRedirect("/login");
+			return ;
+		}
+		
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head><title>Hotel" + currentHotel.getName() +"</title></head>");
 		resp.getWriter().append("<body>");

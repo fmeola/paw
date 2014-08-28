@@ -19,6 +19,16 @@ public class ListHotels extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 //		getServletConfig().getServletContext().setAttribute("db",db);
+		
+		/**
+		 * Mejor hacerlo con filtros
+		 */
+		HttpSession session = req.getSession();
+		if(session.getAttribute("name") == null){
+			resp.sendRedirect("/login");
+			return ;
+		}
+		
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head><title>Hoteles</title></head>");
 		resp.getWriter().append("<body>");
