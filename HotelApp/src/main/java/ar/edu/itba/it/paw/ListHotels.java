@@ -56,11 +56,11 @@ public class ListHotels extends HttpServlet {
 			resp.sendRedirect("/login");
 			return ;
 		}
-		doGet(req,resp);
 		User currentUser = hoteldb.getUser(username);
 		HttpSession session = req.getSession();
 		session.setAttribute("name", currentUser.getName());
 		session.setAttribute("email", currentUser.getEmail());
+		doGet(req,resp);
 	}
 
 }
