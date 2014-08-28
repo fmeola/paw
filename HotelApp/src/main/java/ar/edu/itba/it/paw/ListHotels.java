@@ -39,6 +39,7 @@ public class ListHotels extends HttpServlet {
 			resp.getWriter().append(h.toString());
 		}
 		resp.getWriter().append("</table>");
+		resp.getWriter().append("<a href=\"logout\"> Cerrar Sesión </a>");
 		resp.getWriter().append("</body>");
 		resp.getWriter().append("</html>");
 	}

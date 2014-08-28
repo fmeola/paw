@@ -44,6 +44,14 @@
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.Logout</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
 	<filter>
 		<filter-name>UserAuthFilter</filter-name>
 		<filter-class>ar.edu.itba.it.paw.UserAuthFilter</filter-class>
