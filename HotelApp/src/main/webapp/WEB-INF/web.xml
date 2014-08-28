@@ -20,4 +20,12 @@
 		<servlet-name>ListHotels</servlet-name>
 		<url-pattern>/listHotels</url-pattern>
 	</servlet-mapping>
+		<servlet>
+		<servlet-name>ViewHotel</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.ViewHotel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewHotel</servlet-name>
+		<url-pattern>/viewHotel</url-pattern>
+	</servlet-mapping>
 </web-app>
