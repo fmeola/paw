@@ -8,9 +8,11 @@ import java.util.Map;
 public class HotelDB {
 	
 	private Map<String,Hotel> db = new HashMap<String,Hotel>();
+	private Map<String,String> users = new HashMap<String,String>();
 	
 	public HotelDB() {
 		initHotels();
+		initUsers();
 	}
 	
 	/**
@@ -29,8 +31,23 @@ public class HotelDB {
 		db.put("645",new Hotel(645, "Sheraton", "Serving People",c3));
 	}
 	
+	private void initUsers(){
+		users.put("jpuente","1234");
+		users.put("fmeola","4454");
+		users.put("leti","gomez");
+	}
+	
 	public Map<String,Hotel> getDB(){
 		return db;
+	}
+	
+	public Boolean correctLogin(String username, String password){
+		if(users.containsKey(username)){
+			if(users.get(username).equals(password)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

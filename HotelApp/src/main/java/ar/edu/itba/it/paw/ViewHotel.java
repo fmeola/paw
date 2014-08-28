@@ -36,7 +36,8 @@ public class ViewHotel extends HttpServlet {
 		resp.getWriter().append("</table>");
 		resp.getWriter().append("</br>");
 		resp.getWriter().append("<h3>Deje su comentario aquí</h3>");
-		resp.getWriter().append("<form role=\"form\" action=\"addComment?code=" + currentHotelCode + "\" method=\"post\"><div>");
+		resp.getWriter().append("<form role=\"form\" action=\"addComment\" method=\"post\"><div>");
+		resp.getWriter().append("<input type=\"hidden\" name=\"code\" value=\"" + currentHotelCode + "\">");
 		resp.getWriter().append("<div><label>Usuario </label><input type=\"text\" name=\"usuario\" placeholder=\"Usuario\"></div>");
 		resp.getWriter().append("<div><label>EMail </label><input type=\"text\" name=\"email\" placeholder=\"EMail\"></div>");
 		resp.getWriter().append("<div><label>Comentario </label><textarea name=\"comentario\" placeholder=\"Comentario\"></textarea></div>");
