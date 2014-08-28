@@ -1,8 +1,6 @@
 package ar.edu.itba.it.paw;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -13,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class ViewHotel extends HttpServlet {
 
-	private Map<String,Hotel> db = (new HotelDB()).getDB();
+	@SuppressWarnings("unchecked")
+//	private Map<String,Hotel> db = (Map<String, Hotel>) getServletConfig().getServletContext().getAttribute("db");
+	private Map<String, Hotel> db = (new HotelDB()).getDB();
 	private Hotel currentHotel;
 	private String currentHotelCode;
 	
@@ -34,6 +34,15 @@ public class ViewHotel extends HttpServlet {
 			resp.getWriter().append(c.toString());
 		}
 		resp.getWriter().append("</table>");
+		resp.getWriter().append("</br>");
+		resp.getWriter().append("<h3>Deje su comentario aquí</h3>");
+		resp.getWriter().append("<form role=\"form\" action=\"addComment?code=" + currentHotelCode + "\" method=\"post\"><div>");
+		resp.getWriter().append("<div><label>Usuario </label><input type=\"text\" name=\"usuario\" placeholder=\"Usuario\"></div>");
+		resp.getWriter().append("<div><label>EMail </label><input type=\"text\" name=\"email\" placeholder=\"EMail\"></div>");
+		resp.getWriter().append("<div><label>Comentario </label><textarea name=\"comentario\" placeholder=\"Comentario\"></textarea></div>");
+		resp.getWriter().append("<button type=\"submit\">Enviar</button>");
+		resp.getWriter().append("<button type=\"reset\">Limpiar</button>");
+		resp.getWriter().append("</div></form>");
 		resp.getWriter().append("</body>");
 		resp.getWriter().append("</html>");
 	}

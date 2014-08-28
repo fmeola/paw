@@ -37,4 +37,8 @@ public class Hotel {
 	public String getDescription(){
 		return description;
 	}
+	
+	public void setComments(List<Comment> l){
+		comments = l;
+	}
 }

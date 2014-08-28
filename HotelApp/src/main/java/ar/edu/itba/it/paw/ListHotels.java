@@ -16,6 +16,7 @@ public class ListHotels extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+//		getServletConfig().getServletContext().setAttribute("db",db);
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head><title>Hoteles</title></head>");
 		resp.getWriter().append("<body>");
