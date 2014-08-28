@@ -7,11 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 public class ViewHotel extends HttpServlet {
 
-	@SuppressWarnings("unchecked")
 //	private Map<String,Hotel> db = (Map<String, Hotel>) getServletConfig().getServletContext().getAttribute("db");
 	private Map<String, Hotel> db = (new HotelDB()).getDB();
 	private Hotel currentHotel;
@@ -22,6 +22,8 @@ public class ViewHotel extends HttpServlet {
 			throws ServletException, IOException {
 		currentHotelCode = req.getParameter("code");
 		currentHotel = db.get(currentHotelCode);
+		HttpSession session = req.getSession();
+
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head><title>Hotel" + currentHotel.getName() +"</title></head>");
 		resp.getWriter().append("<body>");
@@ -36,10 +38,18 @@ public class ViewHotel extends HttpServlet {
 		resp.getWriter().append("</table>");
 		resp.getWriter().append("</br>");
 		resp.getWriter().append("<h3>Deje su comentario aquí</h3>");
+		
 		resp.getWriter().append("<form role=\"form\" action=\"addComment\" method=\"post\"><div>");
 		resp.getWriter().append("<input type=\"hidden\" name=\"code\" value=\"" + currentHotelCode + "\">");
+		
+		if(session.getAttribute("name") != null){
+			resp.getWriter().append("<div><label>" + session.getAttribute("name") + "</label></div>");
+			resp.getWriter().append("<div><label>" + session.getAttribute("email") + "</label></div>");
+		} else {
 		resp.getWriter().append("<div><label>Usuario </label><input type=\"text\" name=\"usuario\" placeholder=\"Usuario\"></div>");
 		resp.getWriter().append("<div><label>EMail </label><input type=\"text\" name=\"email\" placeholder=\"EMail\"></div>");
+		}
+		
 		resp.getWriter().append("<div><label>Comentario </label><textarea name=\"comentario\" placeholder=\"Comentario\"></textarea></div>");
 		resp.getWriter().append("<button type=\"submit\">Enviar</button>");
 		resp.getWriter().append("<button type=\"reset\">Limpiar</button>");

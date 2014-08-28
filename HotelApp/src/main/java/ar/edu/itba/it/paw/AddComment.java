@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class AddComment extends HttpServlet {
 
 	Comment c;
-	@SuppressWarnings("unchecked")
 //	private Map<String, Hotel> db = (Map<String, Hotel>) getServletConfig().getServletContext().getAttribute("db");
 	private Map<String, Hotel> db = (new HotelDB()).getDB();
 	

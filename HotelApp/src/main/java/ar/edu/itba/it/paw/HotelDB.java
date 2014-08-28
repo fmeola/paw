@@ -8,7 +8,7 @@ import java.util.Map;
 public class HotelDB {
 	
 	private Map<String,Hotel> db = new HashMap<String,Hotel>();
-	private Map<String,String> users = new HashMap<String,String>();
+	private Map<String,User> users = new HashMap<String,User>();
 	
 	public HotelDB() {
 		initHotels();
@@ -32,9 +32,9 @@ public class HotelDB {
 	}
 	
 	private void initUsers(){
-		users.put("jpuente","1234");
-		users.put("fmeola","4454");
-		users.put("leti","gomez");
+		users.put("jpuente",new User("Julieta","1234","julieta@puente.com"));
+		users.put("fmeola",new User("Franco","4454","franco@meola.com"));
+		users.put("leti",new User("Leticia","gomez","leti@gomez.com"));
 	}
 	
 	public Map<String,Hotel> getDB(){
@@ -43,11 +43,18 @@ public class HotelDB {
 	
 	public Boolean correctLogin(String username, String password){
 		if(users.containsKey(username)){
-			if(users.get(username).equals(password)){
+			if(users.get(username).getPassword().equals(password)){
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public User getUser(String username){
+		if(users.containsKey(username)){
+			return users.get(username);
+		}
+		return null;
 	}
 	
 }
