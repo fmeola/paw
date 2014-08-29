@@ -30,17 +30,20 @@ public class ListHotels extends HttpServlet {
 		}
 		
 		resp.getWriter().append("<html>");
-		resp.getWriter().append("<head><title>Hoteles</title></head>");
-		resp.getWriter().append("<body>");
+		resp.getWriter().append("<head>");
+		resp.getWriter().append("<title>Hoteles</title>");
+		resp.getWriter().append("<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">");
+		resp.getWriter().append("</head>");
+		resp.getWriter().append("<body><div class=\"container\">");
 		resp.getWriter().append("<h1>Hoteles</h1></br>");
 		resp.getWriter()
-				.append("<table><tr><td><b>Código</b></td><td><b>Nombre</b></td><td><b>Descripción</b></td>");
+				.append("<table class=\"table table-striped\"><tr><td><b>Código</b></td><td><b>Nombre</b></td><td><b>Descripción</b></td>");
 		for (Hotel h : db.values()) {
 			resp.getWriter().append(h.toString());
 		}
 		resp.getWriter().append("</table>");
-		resp.getWriter().append("<a href=\"logout\"> Cerrar Sesión </a>");
-		resp.getWriter().append("</body>");
+		resp.getWriter().append("<a href=\"logout\" class=\"btn btn-default\"> Cerrar Sesión </a>");
+		resp.getWriter().append("</div></body>");
 		resp.getWriter().append("</html>");
 	}
 	
