@@ -1,20 +1,22 @@
 package ar.edu.itba.it.paw;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import manager.HotelDB;
+import manager.HotelManager;
+import manager.HotelManagerMem;
 import model.Hotel;
 
 @SuppressWarnings("serial")
 public class ListHotels extends HttpServlet {
 
-	private Map<String,Hotel> db = HotelDB.getDB();
+	private HotelManager hm = new HotelManagerMem();
+	private List<Hotel> hotels = hm.getHotels();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,7 +31,7 @@ public class ListHotels extends HttpServlet {
 		resp.getWriter().append("<h1>Hoteles</h1></br>");
 		resp.getWriter()
 				.append("<table class=\"table table-striped\"><tr><td><b>Código</b></td><td><b>Nombre</b></td><td><b>Descripción</b></td>");
-		for (Hotel h : db.values()) {
+		for (Hotel h : hotels) {
 			resp.getWriter().append(h.toString());
 		}
 		resp.getWriter().append("</table>");

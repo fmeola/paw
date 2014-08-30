@@ -1,8 +1,6 @@
 package ar.edu.itba.it.paw;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import manager.HotelDB;
+import manager.HotelManager;
+import manager.HotelManagerMem;
 import model.Comment;
 import model.Hotel;
 
 @SuppressWarnings("serial")
 public class ViewHotel extends HttpServlet {
 
-	private Map<String, Hotel> db = HotelDB.getDB();
+	private HotelManager hm = new HotelManagerMem();
 	private Hotel currentHotel;
 	private String currentHotelCode;
 	
@@ -25,7 +24,8 @@ public class ViewHotel extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		currentHotelCode = req.getParameter("code");
-		currentHotel = db.get(currentHotelCode);
+		
+		currentHotel = hm.getHotel(currentHotelCode);
 		HttpSession session = req.getSession();
 		
 		resp.getWriter().append("<html>");
@@ -68,12 +68,9 @@ public class ViewHotel extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
-		Hotel currentHotel = db.get(req.getParameter("code"));
-		List<Comment> comments = currentHotel.getComments();
+		Hotel currentHotel = hm.getHotel(req.getParameter("code"));
 		Comment newComment = new Comment(session.getAttribute("name").toString(),session.getAttribute("email").toString(),req.getParameter("comentario"));
-		comments.add(newComment);
-		currentHotel.setComments(comments);
-		db.put("300",currentHotel);
+		hm.addComment(currentHotel, newComment);
 		resp.sendRedirect("/viewHotel?code=" + currentHotel.getCode());
 	}
 }

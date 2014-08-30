@@ -23,10 +23,7 @@ public class HotelDB {
 		}
 	}
 	
-	/**
-	 * Inicializa la lista con los datos.
-	 */
-	private void initHotels() {
+	public static void initHotels() {
 		List<Comment> c1 = new ArrayList<Comment>();
 		c1.add(new Comment("Juan","juan@pepe.com","Me encantó"));
 		db.put("120",new Hotel(120, "NH Latino", "Un lugar como ninguno",c1));
@@ -38,7 +35,7 @@ public class HotelDB {
 		c3.add(new Comment("Leti","leti@itba.com","Letiiii"));
 		db.put("645",new Hotel(645, "Sheraton", "Serving People",c3));
 	}
-	
+
 	private void initUsers(){
 		users.put("jpuente",new User("Julieta","1234","julieta@puente.com"));
 		users.put("fmeola",new User("Franco","4454","franco@meola.com"));

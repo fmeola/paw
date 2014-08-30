@@ -9,10 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import manager.HotelDB;
+import manager.UserManager;
+import manager.UserManagerMem;
 import model.User;
 
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
+	
+	private UserManager um = new UserManagerMem();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -42,16 +46,15 @@ public class Login extends HttpServlet {
 		new HotelDB();
 		String username = req.getParameter("usuario");
 		String pass = req.getParameter("pass");
-		if(!HotelDB.correctLogin(username,pass)){
+		if(!um.correctLogin(username,pass)){
 			resp.sendRedirect("/login");
 			return ;
 		}
-		User currentUser = HotelDB.getUser(username);
+		User currentUser = um.getUser(username);
 		HttpSession session = req.getSession();
 		session.setAttribute("name", currentUser.getName());
 		session.setAttribute("email", currentUser.getEmail());
 		resp.sendRedirect("/listHotels");
 	}
-
 	
 }
