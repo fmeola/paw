@@ -23,8 +23,8 @@ public class JDBCDB{
 			System.out.println("PostgreSQL JDBC Driver Registered!");
 			try {
 				connection = DriverManager.getConnection(
-						"jdbc:postgresql://localhost:5432/hotelapp", "postgres",
-						"fz000118");
+						"jdbc:postgresql://localhost:5432/hotelapp", "paw",
+						"paw");
 			} catch (SQLException e) {
 				System.out.println("Connection Failed! Check output console");
 				e.printStackTrace();
