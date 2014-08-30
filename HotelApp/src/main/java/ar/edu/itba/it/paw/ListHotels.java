@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import manager.HotelManager;
 import manager.HotelManagerJDBC;
-import manager.HotelManagerMem;
+//import manager.HotelManagerMem;
 import model.Hotel;
 
 @SuppressWarnings("serial")

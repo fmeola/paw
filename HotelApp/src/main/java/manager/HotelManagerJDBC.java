@@ -7,7 +7,6 @@ import java.util.List;
 
 import model.Comment;
 import model.Hotel;
-import model.User;
 
 public class HotelManagerJDBC implements HotelManager {
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import manager.HotelManager;
 import manager.HotelManagerJDBC;
-import manager.HotelManagerMem;
+//import manager.HotelManagerMem;
 import model.Comment;
 import model.Hotel;
 
