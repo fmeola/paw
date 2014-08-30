@@ -13,10 +13,14 @@ public class HotelDB {
 	
 	private static Map<String,Hotel> db = new HashMap<String,Hotel>();
 	private static Map<String,User> users = new HashMap<String,User>();
+	private static boolean created = false;
 	
 	public HotelDB() {
-		initHotels();
-		initUsers();
+		if(!created){
+			initHotels();
+			initUsers();
+			created = true;
+		}
 	}
 	
 	/**
