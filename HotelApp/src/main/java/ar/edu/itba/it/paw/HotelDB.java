@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.Comment;
+import model.Hotel;
+import model.User;
+
 public class HotelDB {
 	
-	private Map<String,Hotel> db = new HashMap<String,Hotel>();
-	private Map<String,User> users = new HashMap<String,User>();
+	private static Map<String,Hotel> db = new HashMap<String,Hotel>();
+	private static Map<String,User> users = new HashMap<String,User>();
 	
 	public HotelDB() {
 		initHotels();
@@ -37,11 +41,11 @@ public class HotelDB {
 		users.put("leti",new User("Leticia","gomez","leti@gomez.com"));
 	}
 	
-	public Map<String,Hotel> getDB(){
+	public static Map<String,Hotel> getDB(){
 		return db;
 	}
 	
-	public Boolean correctLogin(String username, String password){
+	public static Boolean correctLogin(String username, String password){
 		if(users.containsKey(username)){
 			if(users.get(username).getPassword().equals(password)){
 				return true;
@@ -50,7 +54,7 @@ public class HotelDB {
 		return false;
 	}
 	
-	public User getUser(String username){
+	public static User getUser(String username){
 		if(users.containsKey(username)){
 			return users.get(username);
 		}

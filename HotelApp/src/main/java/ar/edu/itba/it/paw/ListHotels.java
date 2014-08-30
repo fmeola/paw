@@ -7,27 +7,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import model.Hotel;
 
 @SuppressWarnings("serial")
 public class ListHotels extends HttpServlet {
 
-	private HotelDB hoteldb = new HotelDB();
-	private Map<String,Hotel> db = hoteldb.getDB();
+	private Map<String,Hotel> db = HotelDB.getDB();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-//		getServletConfig().getServletContext().setAttribute("db",db);
-		
-		/**
-		 * Mejor hacerlo con filtros
-		 */
-		HttpSession session = req.getSession();
-		if(session.getAttribute("name") == null){
-			resp.sendRedirect("/login");
-			return ;
-		}
 		
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head>");
@@ -45,25 +35,6 @@ public class ListHotels extends HttpServlet {
 		resp.getWriter().append("<a href=\"logout\" class=\"btn btn-default\"> Cerrar Sesión </a>");
 		resp.getWriter().append("</div></body>");
 		resp.getWriter().append("</html>");
-	}
-	
-	/**
-	 * Para el login
-	 */
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		String username = req.getParameter("usuario");
-		String pass = req.getParameter("pass");
-		if(!hoteldb.correctLogin(username,pass)){
-			resp.sendRedirect("/login");
-			return ;
-		}
-		User currentUser = hoteldb.getUser(username);
-		HttpSession session = req.getSession();
-		session.setAttribute("name", currentUser.getName());
-		session.setAttribute("email", currentUser.getEmail());
-		doGet(req,resp);
 	}
 
 }

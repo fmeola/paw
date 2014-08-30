@@ -28,14 +28,14 @@
 		<servlet-name>ViewHotel</servlet-name>
 		<url-pattern>/viewHotel</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<servlet-name>AddComment</servlet-name>
-		<servlet-class>ar.edu.itba.it.paw.AddComment</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AddComment</servlet-name>
-		<url-pattern>/addComment</url-pattern>
-	</servlet-mapping>
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>AddComment</servlet-name> -->
+<!-- 		<servlet-class>ar.edu.itba.it.paw.AddComment</servlet-class> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>AddComment</servlet-name> -->
+<!-- 		<url-pattern>/addComment</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.Login</servlet-class>
@@ -55,13 +55,13 @@
 	<filter>
 		<filter-name>UserAuthFilter</filter-name>
 		<filter-class>ar.edu.itba.it.paw.UserAuthFilter</filter-class>
-		<init-param>
-			<param-name>avoid-urls</param-name>
-			<param-value>/login,/listHotels</param-value>
-		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>UserAuthFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/viewHotel</url-pattern>
+	</filter-mapping>
+		<filter-mapping>
+		<filter-name>UserAuthFilter</filter-name>
+		<url-pattern>/listHotels</url-pattern>
 	</filter-mapping>
 </web-app>

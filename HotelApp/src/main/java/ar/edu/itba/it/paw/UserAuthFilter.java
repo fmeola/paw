@@ -21,12 +21,9 @@ public class UserAuthFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest)request).getSession();
-		/**
-		 * Preguntar por qué no funcionan los filtros
-		 */
-//		if(session.getAttribute("name")	!= null){
-//			((HttpServletResponse)response).sendRedirect("/login");
-//		}
+		if(session.getAttribute("name")	== null){
+			((HttpServletResponse)response).sendRedirect("/login");
+		}
 		chain.doFilter(request, response);
 	}
 

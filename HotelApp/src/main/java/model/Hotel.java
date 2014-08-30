@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw;
+package model;
 
 import java.util.List;
 

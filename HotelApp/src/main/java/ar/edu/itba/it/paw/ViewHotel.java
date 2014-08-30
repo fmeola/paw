@@ -1,6 +1,7 @@
 package ar.edu.itba.it.paw;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -9,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.Comment;
+import model.Hotel;
+
 @SuppressWarnings("serial")
 public class ViewHotel extends HttpServlet {
 
-//	private Map<String,Hotel> db = (Map<String, Hotel>) getServletConfig().getServletContext().getAttribute("db");
-	private Map<String, Hotel> db = (new HotelDB()).getDB();
+	private Map<String, Hotel> db = HotelDB.getDB();
 	private Hotel currentHotel;
 	private String currentHotelCode;
 	
@@ -23,14 +26,6 @@ public class ViewHotel extends HttpServlet {
 		currentHotelCode = req.getParameter("code");
 		currentHotel = db.get(currentHotelCode);
 		HttpSession session = req.getSession();
-		
-		/**
-		 * Mejor hacerlo con filtros
-		 */
-		if(session.getAttribute("name") == null){
-			resp.sendRedirect("/login");
-			return ;
-		}
 		
 		resp.getWriter().append("<html>");
 		resp.getWriter().append("<head>");
@@ -50,7 +45,7 @@ public class ViewHotel extends HttpServlet {
 		resp.getWriter().append("</br>");
 		resp.getWriter().append("<h3>Deje su comentario aquí</h3>");
 		
-		resp.getWriter().append("<form role=\"form\" action=\"addComment\" method=\"post\"><div>");
+		resp.getWriter().append("<form role=\"form\" action=\"viewHotel\" method=\"post\"><div>");
 		resp.getWriter().append("<input type=\"hidden\" name=\"code\" value=\"" + currentHotelCode + "\">");
 		
 		if(session.getAttribute("name") != null){
@@ -69,4 +64,15 @@ public class ViewHotel extends HttpServlet {
 		resp.getWriter().append("</html>");
 	}
 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		Hotel currentHotel = db.get(req.getParameter("code"));
+		List<Comment> comments = currentHotel.getComments();
+		Comment newComment = new Comment(session.getAttribute("name").toString(),session.getAttribute("email").toString(),req.getParameter("comentario"));
+		comments.add(newComment);
+		currentHotel.setComments(comments);
+		db.put("300",currentHotel);
+		resp.sendRedirect("/viewHotel?code=" + currentHotel.getCode());
+	}
 }
