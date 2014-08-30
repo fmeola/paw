@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import manager.HotelDB;
 import model.Hotel;
 
 @SuppressWarnings("serial")

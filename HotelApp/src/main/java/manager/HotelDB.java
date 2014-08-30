@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw;
+package manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;

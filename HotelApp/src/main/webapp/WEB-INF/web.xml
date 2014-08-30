@@ -5,14 +5,6 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
-		<servlet-name>HelloWorld</servlet-name>
-		<servlet-class>ar.edu.itba.it.paw.HelloWorld</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>HelloWorld</servlet-name>
-		<url-pattern>/helloWorld</url-pattern>
-	</servlet-mapping>
-	<servlet>
 		<servlet-name>ListHotels</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.ListHotels</servlet-class>
 	</servlet>
@@ -54,7 +46,7 @@
 	</servlet-mapping>
 	<filter>
 		<filter-name>UserAuthFilter</filter-name>
-		<filter-class>ar.edu.itba.it.paw.UserAuthFilter</filter-class>
+		<filter-class>filters.UserAuthFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>UserAuthFilter</filter-name>

@@ -1,4 +1,4 @@
-package ar.edu.itba.it.paw;
+package filters;
 
 import java.io.IOException;
 
