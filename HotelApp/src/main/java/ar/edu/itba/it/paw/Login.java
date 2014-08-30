@@ -10,13 +10,15 @@ import javax.servlet.http.HttpSession;
 
 import manager.HotelDB;
 import manager.UserManager;
-import manager.UserManagerMem;
+import manager.UserManagerJDBC;
+//import manager.UserManagerMem;
 import model.User;
 
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
 	
-	private UserManager um = new UserManagerMem();
+//	private UserManager um = new UserManagerMem();
+	private UserManager um = new UserManagerJDBC();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -31,8 +33,8 @@ public class Login extends HttpServlet {
 		
 		resp.getWriter().append("<form role=\"form\" action=\"login" + "\" method=\"post\"><div>");
 		resp.getWriter().append("<div class=\"form-group\"><label>Usuario </label><input type=\"text\" class=\"form-control\" name=\"usuario\" placeholder=\"Usuario\"></div>");
-		resp.getWriter().append("<div class=\"form-group\"><label>Contraseña </label><input type=\"text\" class=\"form-control\" name=\"pass\" placeholder=\"Contraseña\"></div>");
-		resp.getWriter().append("<button type=\"submit\" class=\"btn btn-primary\">Inciar Sesión</button>");
+		resp.getWriter().append("<div class=\"form-group\"><label>Contraseña </label><input type=\"password\" class=\"form-control\" name=\"pass\" placeholder=\"Contraseña\"></div>");
+		resp.getWriter().append("<button type=\"submit\" class=\"btn btn-primary\">Iniciar Sesión</button>");
 		resp.getWriter().append("<button type=\"reset\" class=\"btn btn-default\">Limpiar</button>");
 		resp.getWriter().append("</div></form>");
 		
@@ -54,6 +56,7 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		session.setAttribute("name", currentUser.getName());
 		session.setAttribute("email", currentUser.getEmail());
+		session.setAttribute("username", username);
 		resp.sendRedirect("/listHotels");
 	}
 	

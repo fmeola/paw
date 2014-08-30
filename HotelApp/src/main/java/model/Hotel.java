@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hotel {
@@ -23,7 +24,9 @@ public class Hotel {
 	}
 	
 	public List<Comment> getComments(){
-		return comments;
+		if(comments != null)
+			return comments;
+		return new ArrayList<Comment>();
 	}
 	
 	public String getName(){

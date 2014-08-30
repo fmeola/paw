@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import manager.HotelManager;
+import manager.HotelManagerJDBC;
 import manager.HotelManagerMem;
 import model.Hotel;
 
 @SuppressWarnings("serial")
 public class ListHotels extends HttpServlet {
 
-	private HotelManager hm = new HotelManagerMem();
+//	private HotelManager hm = new HotelManagerMem();
+	private HotelManager hm = new HotelManagerJDBC();
 	private List<Hotel> hotels = hm.getHotels();
 	
 	@Override

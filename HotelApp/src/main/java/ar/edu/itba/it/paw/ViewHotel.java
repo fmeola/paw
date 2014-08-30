@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import manager.HotelManager;
+import manager.HotelManagerJDBC;
 import manager.HotelManagerMem;
 import model.Comment;
 import model.Hotel;
@@ -16,7 +17,8 @@ import model.Hotel;
 @SuppressWarnings("serial")
 public class ViewHotel extends HttpServlet {
 
-	private HotelManager hm = new HotelManagerMem();
+//	private HotelManager hm = new HotelManagerMem();
+	private HotelManager hm = new HotelManagerJDBC();
 	private Hotel currentHotel;
 	private String currentHotelCode;
 	
@@ -69,7 +71,7 @@ public class ViewHotel extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		Hotel currentHotel = hm.getHotel(req.getParameter("code"));
-		Comment newComment = new Comment(session.getAttribute("name").toString(),session.getAttribute("email").toString(),req.getParameter("comentario"));
+		Comment newComment = new Comment(session.getAttribute("username").toString(),session.getAttribute("email").toString(),req.getParameter("comentario"));
 		hm.addComment(currentHotel, newComment);
 		resp.sendRedirect("/viewHotel?code=" + currentHotel.getCode());
 	}
