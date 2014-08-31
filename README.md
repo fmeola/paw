@@ -27,11 +27,11 @@ Ya todo la base debería estar funcionando.
 1. Instalar el Postgres
 2. En alguna carpeta fuera de donde clonaste este repo ejecutar desde la línea de comandos
 
-initdb data
+        initdb data
 
 3. En caso de que no tengas por default corriendo el Postgres en el puerto 5432 ejecutá también
 
-postgres –D data
+        postgres –D data
 
 4. Abrí el pgAdmin III
 5. Click derecho a Login Roles > New Login Role
