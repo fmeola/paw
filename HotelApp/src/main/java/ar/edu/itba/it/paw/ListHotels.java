@@ -24,23 +24,30 @@ public class ListHotels extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-		resp.getWriter().append("<html>");
-		resp.getWriter().append("<head>");
-		resp.getWriter().append("<title>Hoteles</title>");
-		resp.getWriter().append("<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">");
-		resp.getWriter().append("</head>");
-		resp.getWriter().append("<body><div class=\"container\">");
-		resp.getWriter().append("<h1>Hoteles</h1></br>");
-		resp.getWriter()
-				.append("<table class=\"table table-striped\"><tr><td><b>Código</b></td><td><b>Nombre</b></td><td><b>Descripción</b></td>");
-		for (Hotel h : hotels) {
-			resp.getWriter().append(h.toString());
-		}
-		resp.getWriter().append("</table>");
-		resp.getWriter().append("<a href=\"logout\" class=\"btn btn-default\"> Cerrar Sesión </a>");
-		resp.getWriter().append("</div></body>");
-		resp.getWriter().append("</html>");
+		req.setAttribute("hoteles", hotels);
+		req.getRequestDispatcher("/WEB-INF/jsp/listHotels.jsp").forward(req, resp);
 	}
+	
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+//			throws ServletException, IOException {
+//		
+//		resp.getWriter().append("<html>");
+//		resp.getWriter().append("<head>");
+//		resp.getWriter().append("<title>Hoteles</title>");
+//		resp.getWriter().append("<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\">");
+//		resp.getWriter().append("</head>");
+//		resp.getWriter().append("<body><div class=\"container\">");
+//		resp.getWriter().append("<h1>Hoteles</h1></br>");
+//		resp.getWriter()
+//				.append("<table class=\"table table-striped\"><tr><td><b>Código</b></td><td><b>Nombre</b></td><td><b>Descripción</b></td>");
+//		for (Hotel h : hotels) {
+//			resp.getWriter().append(h.toString());
+//		}
+//		resp.getWriter().append("</table>");
+//		resp.getWriter().append("<a href=\"logout\" class=\"btn btn-default\"> Cerrar Sesión </a>");
+//		resp.getWriter().append("</div></body>");
+//		resp.getWriter().append("</html>");
+//	}
 
 }
