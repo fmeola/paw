@@ -1,8 +1,9 @@
-package manager;
+package usermanager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import manager.JDBCDB;
 import model.User;
 
 public class UserManagerJDBC implements UserManager {

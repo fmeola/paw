@@ -1,4 +1,4 @@
-package manager;
+package usermanager;
 
 import model.User;
 

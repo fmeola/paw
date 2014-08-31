@@ -3,7 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>Archetype Created Web Application</display-name>
+	<display-name>Hoteles!</display-name>
 	<servlet>
 		<servlet-name>ListHotels</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.ListHotels</servlet-class>
@@ -20,14 +20,6 @@
 		<servlet-name>ViewHotel</servlet-name>
 		<url-pattern>/viewHotel</url-pattern>
 	</servlet-mapping>
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>AddComment</servlet-name> -->
-<!-- 		<servlet-class>ar.edu.itba.it.paw.AddComment</servlet-class> -->
-<!-- 	</servlet> -->
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>AddComment</servlet-name> -->
-<!-- 		<url-pattern>/addComment</url-pattern> -->
-<!-- 	</servlet-mapping> -->
 	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.Login</servlet-class>

@@ -1,10 +1,11 @@
-package manager;
+package hotelmanager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import manager.JDBCDB;
 import model.Comment;
 import model.Hotel;
 

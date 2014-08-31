@@ -1,4 +1,4 @@
-package manager;
+package hotelmanager;
 
 import java.util.List;
 

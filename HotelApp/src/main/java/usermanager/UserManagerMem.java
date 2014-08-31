@@ -1,4 +1,4 @@
-package manager;
+package usermanager;
 
 import java.util.HashMap;
 import java.util.Map;

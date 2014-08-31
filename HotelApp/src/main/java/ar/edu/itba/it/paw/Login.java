@@ -1,5 +1,7 @@
 package ar.edu.itba.it.paw;
 
+import hotelmanager.HotelDB;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -8,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import manager.HotelDB;
-import manager.UserManager;
-import manager.UserManagerJDBC;
+import usermanager.UserManager;
+import usermanager.UserManagerJDBC;
 //import manager.UserManagerMem;
 import model.User;
 

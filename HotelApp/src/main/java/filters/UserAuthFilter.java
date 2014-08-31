@@ -25,6 +25,7 @@ public class UserAuthFilter implements Filter {
 			((HttpServletResponse)response).sendRedirect("/login");
 		}
 		chain.doFilter(request, response);
+		return ;
 	}
 
 	public void destroy() {
