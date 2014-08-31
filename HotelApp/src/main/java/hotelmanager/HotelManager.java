@@ -12,5 +12,7 @@ public interface HotelManager {
 	public Hotel getHotel(String code);
 	
 	public void addComment(Hotel hotel, Comment comment);
+	
+	public void addHotel(Hotel hotel);
 
 }

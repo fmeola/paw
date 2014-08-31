@@ -26,6 +26,7 @@
 				</c:forEach>
 			</table>
 			<a href="logout" class="btn btn-default">Cerrar Sesión</a>
+			<a href="addHotel" class="btn btn-primary">Agregar un Hotel</a>
 		</div>
 	</body>
 </html>

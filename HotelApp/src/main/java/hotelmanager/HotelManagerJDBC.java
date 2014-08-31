@@ -64,5 +64,11 @@ public class HotelManagerJDBC implements HotelManager {
 		JDBCDB.connectDB();
 		JDBCDB.execQuery("INSERT INTO COMENTARIO VALUES ( '" +comment.getUsername() + "'," + hotel.getCode() + ",'"+ comment.getComment() + "')");
 	}
+
+	@Override
+	public void addHotel(Hotel hotel) {
+		JDBCDB.connectDB();
+		JDBCDB.execQuery("INSERT INTO HOTEL VALUES (" + hotel.getCode() + ",'" + hotel.getName() + "','"+ hotel.getDescription() + "')");		
+	}
 	
 }

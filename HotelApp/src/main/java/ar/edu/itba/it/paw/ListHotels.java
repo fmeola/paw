@@ -19,11 +19,11 @@ public class ListHotels extends HttpServlet {
 
 //	private HotelManager hm = new HotelManagerMem();
 	private HotelManager hm = new HotelManagerJDBC();
-	private List<Hotel> hotels = hm.getHotels();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		List<Hotel> hotels = hm.getHotels();
 		req.setAttribute("hoteles", hotels);
 		req.getRequestDispatcher("/WEB-INF/jsp/listHotels.jsp").forward(req, resp);
 	}

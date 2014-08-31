@@ -44,6 +44,8 @@
 			<button type="reset" class="btn btn-default">Limpiar</button>
 		</div>
 		</form>
+		</br>
+		<a href="listHotels" class="btn btn-default">Volver</a>
 	</div>
 	</body>
 </html>

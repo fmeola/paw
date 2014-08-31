@@ -31,5 +31,10 @@ public class HotelManagerMem implements HotelManager {
 		}
 		return null;
 	}
+
+	@Override
+	public void addHotel(Hotel hotel) {
+		// TODO Auto-generated method stub
+	}
 	
 }
