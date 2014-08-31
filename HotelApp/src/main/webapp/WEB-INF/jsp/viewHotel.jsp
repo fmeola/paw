@@ -13,20 +13,27 @@
 		<h1><c:out value="Hotel ${hotel.name}"/></h1>
 		<h2><c:out value="${hotel.description}"/></h2>
 		<h3><c:out value="Codigo: ${hotel.code}"/></h3>
-		<table class="table table-striped">
-			<tr>
-				<td><b>Usuario</b></td>
-				<td><b>EMail</b></td>
-				<td><b>Comentario</b></td>
-			</tr>
-			<c:forEach var="c" items="${hotel.comments}">
-				<tr>
-					<td><c:out value="${c.username}"/></td>
-					<td><c:out value="${c.mail}"/></td>
-					<td><c:out value="${c.comment}"/></td>
-				</tr>
-			</c:forEach>
-		</table>
+		<c:choose>
+			<c:when test="${empty hotel.comments}">
+				<div class="alert alert-info" role="alert">No hay comentarios</div>
+			</c:when>
+			<c:otherwise>
+				<table class="table table-striped">
+					<tr>
+						<td><b>Usuario</b></td>
+						<td><b>EMail</b></td>
+						<td><b>Comentario</b></td>
+					</tr>
+					<c:forEach var="c" items="${hotel.comments}">
+						<tr>
+							<td><c:out value="${c.username}"/></td>
+							<td><c:out value="${c.mail}"/></td>
+							<td><c:out value="${c.comment}"/></td>
+						</tr>
+					</c:forEach>
+				</table>
+    		</c:otherwise>
+		</c:choose>
 		</br>
 		<h3>Deje su comentario aquí</h3>
 		<form role="form" action="viewHotel" method="post">
