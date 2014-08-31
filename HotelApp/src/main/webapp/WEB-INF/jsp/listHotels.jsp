@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	</head>
 	<body>
+	<%@ include file="header.jsp" %>
 		<div class="container">
 			<h1>Hoteles</h1></br>
 			<table class="table table-striped">
@@ -28,5 +29,6 @@
 			<a href="logout" class="btn btn-default">Cerrar Sesión</a>
 			<a href="addHotel" class="btn btn-primary">Agregar un Hotel</a>
 		</div>
+	<%@ include file="footer.jsp" %>
 	</body>
 </html>

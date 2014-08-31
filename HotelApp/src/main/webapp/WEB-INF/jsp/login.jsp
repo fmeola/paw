@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	</head>
 	<body>
+	<%@ include file="header.jsp" %>
 		<div class="container">
 			<h1>Login</h1></br>
 			<form role="form" action="login" method="post">
@@ -19,5 +20,6 @@
 				</div>
 			</form>
 		</div>
+	<%@ include file="footer.jsp" %>
 	</body>
 </html>
