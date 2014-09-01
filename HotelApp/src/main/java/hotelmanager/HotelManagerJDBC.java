@@ -70,5 +70,11 @@ public class HotelManagerJDBC implements HotelManager {
 		JDBCDB.connectDB();
 		JDBCDB.execQuery("INSERT INTO HOTEL VALUES (" + hotel.getCode() + ",'" + hotel.getName() + "','"+ hotel.getDescription() + "')");		
 	}
+
+	@Override
+	public void modifyHotel(Hotel hotel) {
+		JDBCDB.connectDB();
+		JDBCDB.execQuery("UPDATE HOTEL SET NOMBRE = '" + hotel.getName() + "', DESCRIPCION = '" + hotel.getDescription() + "' WHERE CODIGO = " + hotel.getCode());		
+	}
 	
 }

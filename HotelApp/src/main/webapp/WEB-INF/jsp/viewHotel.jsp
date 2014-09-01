@@ -46,6 +46,7 @@
 		</div>
 		</form>
 		</br>
+		<a href="modifyHotel?code=${hotel.code}" class="btn btn-primary">Modificar</a>
 		<a href="listHotels" class="btn btn-default">Volver</a>
 	</div>
 	<%@ include file="footer.jsp" %>

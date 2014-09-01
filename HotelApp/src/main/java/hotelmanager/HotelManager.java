@@ -15,4 +15,6 @@ public interface HotelManager {
 	
 	public void addHotel(Hotel hotel);
 
+	public void modifyHotel(Hotel hotel);
+
 }
