@@ -24,6 +24,22 @@ public class UserManagerJDBC implements UserManager {
 		return user; 
 	}
 
+//	public User getUser(String username) {
+//		JDBCDB.connectDB();
+//		ResultSet res = JDBCDB.execQuery("SELECT * FROM getuser('" + username + "')");
+//		User user = null;
+//		if(res != null){
+//			try {
+//				while (res.next()){
+//					user = new User(res.getString("nombre"),res.getString("password"),res.getString("email"));
+//				}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return user; 
+//	}
+	
 	public Boolean correctLogin(String username, String password) {
 		JDBCDB.connectDB();
 		Boolean b = false;
