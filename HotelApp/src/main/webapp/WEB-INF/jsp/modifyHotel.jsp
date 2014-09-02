@@ -14,7 +14,7 @@
 		<h1>Modificar un Hotel</h1>
 		<form role="form" action="modifyHotel" method="post">
 		<div>
-			<div class="form-group"><label>Código: ${hotel.code} </label></div>
+			<div class="form-group"><label>Código: ${hotel.code} </label><input type="hidden" name="codigo" value="${hotel.code}"/></div>
 			<div class="form-group"><label>Nombre </label><input type="text" class="form-control" name="nombre" value="${hotel.name}" placeholder="Nombre"></div>
 			<div class="form-group"><label>Descripción </label><textarea name="descripcion" class="form-control">${hotel.description}</textarea></div>
 			<button type="submit" class="btn btn-success">Enviar</button>
