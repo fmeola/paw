@@ -17,9 +17,7 @@ import model.User;
 
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
-	
-	//TODO Hacer todas las paths de los redirects relativas porque en Tomcat no funcionan
-	
+		
 //	private UserManager um = new UserManagerMem();
 	private UserManager um = new UserManagerJDBC();
 

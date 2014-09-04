@@ -10,9 +10,10 @@ public class Comment {
 		return username;
 	}
 
-	public String toString(){
-		return "<tr><td>" + username + "</td><td>" + mail + "</td><td>" + comment + "</td></tr>";
-	}
+//	public String toString(){
+//		return "<tr><td>" + username + "</td><td>" + mail + "</td><td>" + comment + "</td></tr>";
+//	}
+	
 	public String getMail() {
 		return mail;
 	}

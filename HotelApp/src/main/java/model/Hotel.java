@@ -17,11 +17,11 @@ public class Hotel {
 		this.comments = comments;
 	}
 
-	@Override
-	public String toString() {
-		return "<tr><td>" + code + "</td><td><a href=\"viewHotel?code=" + code + "\">" + name + "</a></td><td>"
-				+ description + "</td></tr>";
-	}
+//	@Override
+//	public String toString() {
+//		return "<tr><td>" + code + "</td><td><a href=\"viewHotel?code=" + code + "\">" + name + "</a></td><td>"
+//				+ description + "</td></tr>";
+//	}
 	
 	public List<Comment> getComments(){
 		if(comments != null)
