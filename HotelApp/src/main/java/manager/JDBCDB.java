@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.postgresql.ds.PGPoolingDataSource;
+
 public class JDBCDB{
 	
 	private static Connection connection = null;
@@ -22,9 +24,17 @@ public class JDBCDB{
 			}
 			System.out.println("PostgreSQL JDBC Driver Registered!");
 			try {
-				connection = DriverManager.getConnection(
-						"jdbc:postgresql://localhost:5432/hotelapp", "paw",
-						"paw");
+//				connection = DriverManager.getConnection(
+//						"jdbc:postgresql://localhost:5432/hotelapp", "paw",
+//						"paw");
+				PGPoolingDataSource source = new PGPoolingDataSource();
+				source.setDataSourceName("A Data Source");
+				source.setServerName("localhost");
+				source.setDatabaseName("hotelapp");
+				source.setUser("paw");
+				source.setPassword("paw");
+				source.setMaxConnections(10);
+			    connection = source.getConnection();
 			} catch (SQLException e) {
 				System.out.println("Connection Failed! Check output console");
 				e.printStackTrace();
