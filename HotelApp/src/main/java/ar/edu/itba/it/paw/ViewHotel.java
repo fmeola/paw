@@ -85,6 +85,6 @@ public class ViewHotel extends HttpServlet {
 		Hotel currentHotel = hm.getHotel(req.getParameter("code"));
 		Comment newComment = new Comment(session.getAttribute("username").toString(),session.getAttribute("email").toString(),req.getParameter("comentario"));
 		hm.addComment(currentHotel, newComment);
-		resp.sendRedirect("/viewHotel?code=" + currentHotel.getCode());
+		resp.sendRedirect(req.getContextPath() + "/viewHotel?code=" + currentHotel.getCode());
 	}
 }

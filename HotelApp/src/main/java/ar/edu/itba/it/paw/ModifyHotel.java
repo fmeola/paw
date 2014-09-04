@@ -33,6 +33,6 @@ public class ModifyHotel extends HttpServlet {
 		String nombre = req.getParameter("nombre");
 		String descripcion = req.getParameter("descripcion");
 		hm.modifyHotel(new Hotel(codigo, nombre, descripcion, null));
-		resp.sendRedirect("/viewHotel?code=" + codigo);
+		resp.sendRedirect(req.getContextPath() + "/viewHotel?code=" + codigo);
 	}
 }

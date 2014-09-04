@@ -11,6 +11,6 @@ public class Logout extends HttpServlet {
 			throws javax.servlet.ServletException, java.io.IOException {
 		HttpSession session = req.getSession();
 		session.setAttribute("name", null);
-		resp.sendRedirect("/login");
+		resp.sendRedirect(req.getContextPath() + "/login");
 	};
 }

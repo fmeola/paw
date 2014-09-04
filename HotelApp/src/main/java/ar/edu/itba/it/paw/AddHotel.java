@@ -29,7 +29,7 @@ public class AddHotel extends HttpServlet {
 		String nombre = req.getParameter("nombre");
 		String descripcion = req.getParameter("descripcion");
 		hm.addHotel(new Hotel(codigo, nombre, descripcion, null));
-		resp.sendRedirect("/listHotels");
+		resp.sendRedirect(req.getContextPath() + "/listHotels");
 	}
 	
 }

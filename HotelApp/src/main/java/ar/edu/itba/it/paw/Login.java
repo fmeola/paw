@@ -59,7 +59,7 @@ public class Login extends HttpServlet {
 		String username = req.getParameter("usuario");
 		String pass = req.getParameter("pass");
 		if(!um.correctLogin(username,pass)){
-			resp.sendRedirect("/login");
+			resp.sendRedirect(req.getContextPath() + "/login");
 			return ;
 		}
 		User currentUser = um.getUser(username);
@@ -67,7 +67,7 @@ public class Login extends HttpServlet {
 		session.setAttribute("name", currentUser.getName());
 		session.setAttribute("email", currentUser.getEmail());
 		session.setAttribute("username", username);
-		resp.sendRedirect("/listHotels");
+		resp.sendRedirect(req.getContextPath() + "/listHotels");
 	}
 	
 }
