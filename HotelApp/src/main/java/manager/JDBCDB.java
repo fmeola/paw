@@ -44,12 +44,20 @@ public class JDBCDB{
 			if (stmt.execute(query)) {
 				myCursor = stmt.getResultSet();
 			}
-//			stmt.close();
 		} catch (Exception e) {
 			System.out.println("ERR: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return myCursor;
+	}
+	
+	public static void closeConnection(){
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

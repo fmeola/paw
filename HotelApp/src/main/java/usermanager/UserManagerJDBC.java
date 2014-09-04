@@ -17,6 +17,7 @@ public class UserManagerJDBC implements UserManager {
 				while (res.next()){
 					user = new User(res.getString("nombre"),res.getString("password"),res.getString("email"));
 				}
+				res.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -49,6 +50,7 @@ public class UserManagerJDBC implements UserManager {
 				while (res.next()){
 					b = res.getString("password").equals(password);
 				}
+				res.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

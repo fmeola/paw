@@ -20,6 +20,7 @@ public class HotelManagerJDBC implements HotelManager {
 				while (res.next()){
 					hotels.add(new Hotel(res.getInt("codigo"),res.getString("nombre"),res.getString("descripcion"),null));
 				}
+				res.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -37,6 +38,7 @@ public class HotelManagerJDBC implements HotelManager {
 				while (res.next()){
 					hotel = new Hotel(res.getInt("codigo"),res.getString("nombre"),res.getString("descripcion"),comments);
 				}
+				res.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -53,6 +55,7 @@ public class HotelManagerJDBC implements HotelManager {
 				while (res.next()){
 					comments.add(new Comment(res.getString("username"),res.getString("email"),res.getString("comment")));
 				}
+				res.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
